@@ -2,18 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Login - Wellness Annotation</title>
+  <title>Sign In</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header><h1>Wellness Ground Truth Tool</h1></header>
-  <main class="centered">
-    <form id="loginForm">
-      <label for="username">Enter your name:</label>
-      <input type="text" id="username" required />
-      <button type="submit">Start Annotating</button>
-    </form>
-  </main>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>🔐 Sign In to Annotate</h2>
+      <input type="text" id="nameInput" placeholder="Enter your name" />
+      <br />
+      <button onclick="signIn()">Start Annotating</button>
+    </div>
+  </div>
+
+  <script>
+    function signIn() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (name) {
+        localStorage.setItem("annotatorName", name);
+        window.location.href = "index.html";
+      } else {
+        alert("Please enter your full name to proceed.");
+      }
+    }
+  </script>
 </body>
-<script src="login.js"></script>
 </html>

@@ -2,35 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Annotation - Wellness Ground Truth</title>
+  <title>Annotation Page</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Wellness Ground Truth Annotation</h1>
+    <h1>🧠 Wellness Dataset Annotation</h1>
   </header>
 
-  <div id="video-section">
-    <video id="videoPlayer" controls>
-      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-      Your browser does not support video.
-    </video>
-    <div id="segmentControls">
-      <button id="prevSegment">⏮ Prev</button>
-      <button id="replaySegment">🔁 Replay</button>
-      <button id="nextSegment">⏭ Next</button>
+  <main>
+    <section id="video-section">
+      <video id="videoPlayer" controls></video>
+      <div id="segmentControls">
+        <button onclick="prevSegment()">⬅️ Previous</button>
+        <button onclick="nextSegment()">Next ➡️</button>
+        <div id="progressBar">Segment 1/5</div>
+      </div>
+    </section>
+
+    <section id="annotation-section">
+      <div class="annotation-block">
+        <h3>Status:</h3>
+        <div class="button-group">
+          <button onclick="selectStatus('Correct')">✅ Correct</button>
+          <button onclick="selectStatus('Incorrect')">❌ Incorrect</button>
+        </div>
+      </div>
+
+      <div class="annotation-block">
+        <h3>Comment:</h3>
+        <textarea id="commentBox" placeholder="Write your notes here..."></textarea>
+      </div>
+    </section>
+
+    <div class="submit-area" id="submitArea" style="display: none;">
+      <button onclick="submitEvaluation()">✅ Submit Evaluation</button>
     </div>
-    <div id="progressBar">Segment 0 of 0</div>
-  </div>
-
-  <main id="annotation-section"></main>
-
-  <div class="submit-area">
-    <button id="submitResults" style="display: none;">✅ Submit Evaluation</button>
-  </div>
+  </main>
 
   <footer>
-    <img src="public/jibo_footer.png" alt="Jibo Robot" height="100" />
+    <img src="https://i.imgur.com/lRVzVPL.png" alt="Jibo robot footer" />
   </footer>
 
   <script src="app.js"></script>
