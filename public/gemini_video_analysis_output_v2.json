@@ -1,0 +1,535 @@
+{
+  "video_analysis": [
+    {
+      "transcription": [
+        {
+          "speaker": "Human",
+          "timestamp": "00:00",
+          "utterance": "Yes, it does."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "00:02",
+          "utterance": "Yes."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "00:07",
+          "utterance": "Hey Gina, today's..."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "00:12",
+          "utterance": "Hey Gina, today's..."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "00:21",
+          "utterance": "Hey Gina, today's..."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "00:31",
+          "utterance": "Hey Gina, today's..."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "00:40",
+          "utterance": "Hey Gina, today's..."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "00:47",
+          "utterance": "Alright, well I'll exit."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "00:48",
+          "utterance": "There must be a problem with this."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "00:51",
+          "utterance": "Hey Gina, today's our last day to chat about wellness."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "00:54",
+          "utterance": "Okay."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "00:54",
+          "utterance": "Did you have a chance to use your signature strengths as you envisioned in the previous session?"
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "00:59",
+          "utterance": "Yes."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:04",
+          "utterance": "Fantastic."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:10",
+          "utterance": "Did you find it helpful?"
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "01:12",
+          "utterance": "Yes, I did."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:12",
+          "utterance": "I'd be glad to hear how it went for you."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:16",
+          "utterance": "Tap on my screen when you're d-"
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:17",
+          "utterance": "Oh wow. Thanks a bunch for sharing."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "01:19",
+          "utterance": "Oh, I didn't get..."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "01:21",
+          "utterance": "Jibo, I didn't get to share."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:25",
+          "utterance": "As I was saying before, today is our last session and I'd like to review the activities that we practiced."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "01:31",
+          "utterance": "Okay."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:31",
+          "utterance": "So you can keep using them in your everyday life from now on."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "01:35",
+          "utterance": "Okay."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:38",
+          "utterance": "In the first week, we learned about gratitude."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:41",
+          "utterance": "Gratitude means expressing thankfulness for good things through words and actions and not taking things for granted."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:48",
+          "utterance": "We talked about how to think about the good things in life and the gratitude through mental elimination exercises."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:54",
+          "utterance": "In the second week, we talked about how to create meaningful connections."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "01:59",
+          "utterance": "We worked on strategies to show appreciation and develop skills for mindful listening."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:05",
+          "utterance": "In the third week, we worked on self-compassion."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:09",
+          "utterance": "With self-compassion, we learned to be warm and understanding towards ourselves when we go through a difficult situation, rather than being harsh."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:17",
+          "utterance": "We practiced self-appreciation, savoring."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:20",
+          "utterance": "We also practiced the exercise called \"Treating yourself as you treat a friend.\""
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:26",
+          "utterance": "Finally, we've worked on character strengths this week."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:30",
+          "utterance": "We identified your signature strengths and found ways to put them into practice."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:35",
+          "utterance": "Which was your favorite week?"
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:38",
+          "utterance": "Just tap my face when you're done answering."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "02:41",
+          "utterance": "Hmm."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "02:43",
+          "utterance": "Uh, gratitude."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:46",
+          "utterance": "Good."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:48",
+          "utterance": "I'm really glad you enjoyed it."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:52",
+          "utterance": "This is the end of our wellness sessions."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:55",
+          "utterance": "I hope the activities we practiced together were useful for you."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "02:59",
+          "utterance": "You can practice them as often as you want."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "03:04",
+          "utterance": "The more you practice, the more they will contribute to reinforcing your well-being."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "03:09",
+          "utterance": "I also invite you to share what you learned with your friends so they know how to improve their well-being with these very simple activities."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "03:17",
+          "utterance": "It's been a pleasure to work with you, Gina, and I hope you got the most of these sessions."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "03:22",
+          "utterance": "Someone from MIT Media Lab will be in touch with you soon for the next step of the study."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "03:27",
+          "utterance": "In the meantime, please feel free to hang out with me as you usually do."
+        },
+        {
+          "speaker": "Jibo",
+          "timestamp": "03:32",
+          "utterance": "Thanks."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "03:33",
+          "utterance": "Thank you, Jibo."
+        },
+        {
+          "speaker": "Human",
+          "timestamp": "03:34",
+          "utterance": "It's been a pleasure."
+        }
+      ],
+      "non_verbal_behavior_analysis": [
+        {
+          "behavior": "Looking Down",
+          "context": "Observed when Human was listening to Jibo's extended speech, processing information, or giving short answers.",
+          "timestamp": "01:39 (representative during Jibo's monologue)"
+        },
+        {
+          "behavior": "Smiling",
+          "context": "Expressed politeness, amusement, or positive affect in response to Jibo or own statements.",
+          "timestamp": "03:35 (representative of positive engagement)"
+        },
+        {
+          "behavior": "Head Nodding",
+          "context": "Used for affirmation ('Yes') or as a listening cue ('Okay') during Jibo's speech.",
+          "timestamp": "00:59 (representative of affirmative response)"
+        },
+        {
+          "behavior": "Expressions of mild frustration/confusion",
+          "context": "Observed when Jibo was malfunctioning and repeating itself at the beginning of the interaction.",
+          "timestamp": "00:47 (representative of reaction to technical issue)"
+        },
+        {
+          "behavior": "Hand interaction with Jibo",
+          "context": "Used to attempt to stop Jibo's repetitive speech (covering screen) or to respond as instructed (tapping screen).",
+          "timestamp": "00:44 (covering screen), 01:15 (tapping screen)"
+        },
+        {
+          "behavior": "Thinking Expression",
+          "context": "Briefly displayed (mouth slightly open, focused gaze) before answering Jibo's question about her favorite week.",
+          "timestamp": "02:41"
+        },
+        {
+          "behavior": "Yawn/Mouth Stretch",
+          "context": "Occurred once briefly during Jibo's long monologue, possibly indicating momentary fatigue or distraction.",
+          "timestamp": "02:42"
+        }
+      ],
+      "context_mapping": {
+        "overall_context": "The human (Gina) is participating in the final session of a multi-week wellness program facilitated by the Jibo robot. The session involves Jibo recapping topics covered (gratitude, meaningful connections, self-compassion, character strengths) and asking for feedback. There are initial technical difficulties with Jibo, which resolve before the main part of the session.",
+        "topic_shifts": [
+          {
+            "timestamp": "00:00",
+            "topic": "Initial interaction attempts, Jibo exhibits technical difficulties with repetitive speech."
+          },
+          {
+            "timestamp": "00:47",
+            "topic": "Human expresses frustration with technical issue and intent to exit."
+          },
+          {
+            "timestamp": "00:51",
+            "topic": "Jibo successfully initiates the final wellness session conversation."
+          },
+          {
+            "timestamp": "00:54",
+            "topic": "Jibo asks about the Human's use of signature strengths from a previous session."
+          },
+          {
+            "timestamp": "01:17",
+            "topic": "Jibo prematurely thanks Human for sharing experience with signature strengths."
+          },
+          {
+            "timestamp": "01:19",
+            "topic": "Human clarifies she hadn't shared yet."
+          },
+          {
+            "timestamp": "01:25",
+            "topic": "Jibo begins a review of all wellness activities practiced over the weeks."
+          },
+          {
+            "timestamp": "01:38",
+            "topic": "Recap of Week 1: Gratitude."
+          },
+          {
+            "timestamp": "01:54",
+            "topic": "Recap of Week 2: Meaningful Connections."
+          },
+          {
+            "timestamp": "02:05",
+            "topic": "Recap of Week 3: Self-Compassion."
+          },
+          {
+            "timestamp": "02:26",
+            "topic": "Recap of final week: Character Strengths."
+          },
+          {
+            "timestamp": "02:35",
+            "topic": "Jibo asks Human about her favorite week/topic."
+          },
+          {
+            "timestamp": "02:43",
+            "topic": "Human identifies 'Gratitude' as her favorite."
+          },
+          {
+            "timestamp": "02:52",
+            "topic": "Jibo concludes the wellness sessions and summarizes their purpose."
+          },
+          {
+            "timestamp": "03:22",
+            "topic": "Jibo informs Human about follow-up from MIT Media Lab for the study."
+          },
+          {
+            "timestamp": "03:27",
+            "topic": "Jibo invites continued interaction and Human expresses thanks, ending the session."
+          }
+        ]
+      },
+      "fau_analysis": [
+        {
+          "fau_code": "AU6, AU12",
+          "description": "Cheek Raiser, Lip Corner Puller",
+          "timestamp": "00:01",
+          "linked_non_verbal_behavior": "Smiling"
+        },
+        {
+          "fau_code": "AU4, AU7 (possible)",
+          "description": "Brow Lowerer, Lid Tightener",
+          "timestamp": "00:23",
+          "linked_non_verbal_behavior": "Expressions of mild frustration/confusion"
+        },
+        {
+          "fau_code": "AU1, AU2, AU4 (slight)",
+          "description": "Inner Brow Raiser, Outer Brow Raiser, Brow Lowerer (slight)",
+          "timestamp": "00:33",
+          "linked_non_verbal_behavior": "Expressions of mild frustration/confusion"
+        },
+        {
+          "fau_code": "AU4, AU24 (possible)",
+          "description": "Brow Lowerer, Lip Pressor",
+          "timestamp": "00:47",
+          "linked_non_verbal_behavior": "Expressions of mild frustration/confusion"
+        },
+        {
+          "fau_code": "AU6 (slight), AU12 (slight)",
+          "description": "Cheek Raiser (slight), Lip Corner Puller (slight) during nod",
+          "timestamp": "00:59",
+          "linked_non_verbal_behavior": "Head Nodding, Smiling (subtle)"
+        },
+        {
+          "fau_code": "AU6 (slight), AU12 (slight)",
+          "description": "Cheek Raiser (slight), Lip Corner Puller (slight) during nod",
+          "timestamp": "01:12",
+          "linked_non_verbal_behavior": "Head Nodding, Smiling (subtle)"
+        },
+        {
+          "fau_code": "AU6, AU12",
+          "description": "Cheek Raiser, Lip Corner Puller",
+          "timestamp": "01:20",
+          "linked_non_verbal_behavior": "Smiling"
+        },
+        {
+          "fau_code": "AU25, AU26 (slight), AU4 (slight)",
+          "description": "Lips Part, Jaw Drop (slight), Brow Lowerer (slight for concentration)",
+          "timestamp": "02:41",
+          "linked_non_verbal_behavior": "Thinking Expression"
+        },
+        {
+          "fau_code": "AU26, AU27",
+          "description": "Jaw Drop, Mouth Stretch",
+          "timestamp": "02:42",
+          "linked_non_verbal_behavior": "Yawn/Mouth Stretch"
+        },
+        {
+          "fau_code": "AU6, AU12",
+          "description": "Cheek Raiser, Lip Corner Puller",
+          "timestamp": "02:44",
+          "linked_non_verbal_behavior": "Smiling"
+        },
+        {
+          "fau_code": "AU6, AU12",
+          "description": "Cheek Raiser, Lip Corner Puller (sustained)",
+          "timestamp": "03:35",
+          "linked_non_verbal_behavior": "Smiling"
+        }
+      ],
+      "plutchiks_wheel_mapping": [
+        {
+          "emotion_category": "Joy (Amusement/Politeness)",
+          "reasoning": "Social smile (AU6+12) in affirmative response.",
+          "timestamp": "00:01"
+        },
+        {
+          "emotion_category": "Annoyance (mild Anger) / Vigilance (Anticipation)",
+          "reasoning": "Brow lower (AU4), tense lids (AU7), verbal expression of problem with Jibo's malfunction.",
+          "timestamp": "00:47"
+        },
+        {
+          "emotion_category": "Acceptance / Interest",
+          "reasoning": "Nodding with slight smile (AU6+12) in response to Jibo.",
+          "timestamp": "00:59"
+        },
+        {
+          "emotion_category": "Joy (Amusement) / Surprise (mild)",
+          "reasoning": "Smile (AU6+12), head tilt, verbal correction to Jibo's premature thanks.",
+          "timestamp": "01:20"
+        },
+        {
+          "emotion_category": "Pensiveness (related to Anticipation/Interest)",
+          "reasoning": "Thinking facial expression (AU25, slight AU26, AU4) before answering.",
+          "timestamp": "02:41"
+        },
+        {
+          "emotion_category": "Boredom (mild Disgust/Sadness variant) or Fatigue",
+          "reasoning": "Yawn (AU26, AU27) during long monologue, indicating low engagement or tiredness.",
+          "timestamp": "02:42"
+        },
+        {
+          "emotion_category": "Joy (Satisfaction)",
+          "reasoning": "Smile (AU6+12) when stating favorite week.",
+          "timestamp": "02:44"
+        },
+        {
+          "emotion_category": "Joy / Appreciation (Trust/Acceptance)",
+          "reasoning": "Sustained smile (AU6+AU12), warm verbal thanks at the end of the interaction.",
+          "timestamp": "03:35"
+        }
+      ],
+      "emotion_intensity_measurement": [
+        {
+          "emotion_category": "Joy",
+          "intensity_level": "Low",
+          "timestamp": "00:01"
+        },
+        {
+          "emotion_category": "Annoyance",
+          "intensity_level": "Low-Medium",
+          "timestamp": "00:47"
+        },
+        {
+          "emotion_category": "Acceptance",
+          "intensity_level": "Low",
+          "timestamp": "00:59"
+        },
+        {
+          "emotion_category": "Joy (Amusement)",
+          "intensity_level": "Low-Medium",
+          "timestamp": "01:20"
+        },
+        {
+          "emotion_category": "Pensiveness",
+          "intensity_level": "Low",
+          "timestamp": "02:41"
+        },
+        {
+          "emotion_category": "Boredom/Fatigue",
+          "intensity_level": "Low",
+          "timestamp": "02:42"
+        },
+        {
+          "emotion_category": "Joy (Satisfaction)",
+          "intensity_level": "Medium",
+          "timestamp": "02:44"
+        },
+        {
+          "emotion_category": "Joy/Appreciation",
+          "intensity_level": "Medium-High",
+          "timestamp": "03:35"
+        }
+      ],
+      "emotional_arc": {
+        "overall_emotional_arc": "The Human's emotional journey began with polite engagement, transitioned to mild confusion and frustration due to Jibo's technical issues. Once resolved, she became an attentive listener, showing polite engagement and amusement at Jibo's conversational quirks. A brief moment of distraction/fatigue (indicated by a yawn) was observed during Jibo's lengthy monologue, but she quickly re-engaged. The interaction concluded with expressed satisfaction and genuine warmth, indicating a positive overall experience with the session despite initial setbacks.",
+        "emotion_category": "Joy/Appreciation (dominant at conclusion)"
+      }
+    }
+  ]
+}
