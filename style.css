@@ -1,9 +1,21 @@
-/* General Layout and Theme */
-body {
+/* Ensure full-page layout with sticky footer */
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: Arial, sans-serif;
   background-color: #121212;
   color: #eee;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make main content expand to push footer down */
+main {
+  flex: 1;
 }
 
 /* Header & Footer */
@@ -25,7 +37,7 @@ footer img {
 
 /* Login Page Centered */
 .login-container {
-  height: 100vh;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
