@@ -20,7 +20,6 @@ function loadSegment(index) {
   const annotationDiv = document.getElementById("annotation-section");
   annotationDiv.innerHTML = "";
 
-  const textareaId = `correction-${index}`;
   const saved = results[index] || { status: null, comment: "" };
 
   const block = document.createElement("div");
@@ -31,16 +30,25 @@ function loadSegment(index) {
     <p><strong>Time:</strong> ${seg.timestamp}</p>
     <p><strong>Utterance:</strong> ${seg.utterance}</p>
 
-    <button onclick="markCorrect(${index})" ${saved.status === 'correct' ? 'disabled' : ''}>✅ Correct</button>
-    <button onclick="markIncorrect(${index})">❌ Incorrect</button>
+    <div class="button-group">
+      <button class="${saved.status === 'correct' ? 'selected' : ''}" onclick="markCorrect(${index})">✅ Correct</button>
+      <button class="${saved.status === 'incorrect' ? 'selected' : ''}" onclick="markIncorrect(${index})">❌ Incorrect</button>
+    </div>
 
-    <div id="${textareaId}" style="display:${saved.status === 'incorrect' ? 'block' : 'none'};">
+    <div id="correction-${index}" style="display:${saved.status === 'incorrect' ? 'block' : 'none'};">
       <textarea placeholder="Write correction..." oninput="updateComment(${index}, this.value)">${saved.comment}</textarea>
     </div>
   `;
 
   document.getElementById("videoPlayer").currentTime = timestampToSeconds(seg.timestamp);
   annotationDiv.appendChild(block);
+
+  // Only show submit button if last segment
+  if (index === segments.length - 1) {
+    document.getElementById("submitResults").style.display = "block";
+  } else {
+    document.getElementById("submitResults").style.display = "none";
+  }
 }
 
 function timestampToSeconds(ts) {
@@ -90,8 +98,11 @@ function updateProgress() {
 }
 
 document.getElementById("submitResults").onclick = () => {
-  const previousResults = JSON.parse(localStorage.getItem("results") || "{}");
-  previousResults[username] = results;
-  localStorage.setItem("results", JSON.stringify(previousResults));
-  window.location.href = "thankyou.html";
+  fetch('/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, results })
+  }).then(() => {
+    window.location.href = "thankyou.html";
+  });
 };

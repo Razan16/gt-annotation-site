@@ -6,41 +6,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="centered">
-    <h2>🎉 Thank you for your contribution!</h2>
-    <p>Your evaluation has been saved.</p>
+  <div class="thankyou-box">🎉 Thank You!</div>
 
-    <button onclick="downloadCSV()">📄 Download All Results (CSV)</button>
-    <br /><br />
-    <a href="login.html">🔁 Annotate Again</a>
-  </main>
-
-  <script>
-    function downloadCSV() {
-      const data = JSON.parse(localStorage.getItem('results') || '{}');
-      let csv = "Username,Segment #,Status,Comment\n";
-
-      for (const [username, segments] of Object.entries(data)) {
-        segments.forEach((entry, index) => {
-          const line = [
-            username,
-            index + 1,
-            entry.status || "",
-            entry.comment ? `"${entry.comment.replace(/"/g, '""')}"` : ""
-          ].join(",");
-          csv += line + "\n";
-        });
-      }
-
-      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-      const link = document.createElement("a");
-      link.setAttribute("href", URL.createObjectURL(blob));
-      link.setAttribute("download", "results.csv");
-      link.style.display = "none";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-  </script>
+  <div class="centered">
+    <img class="cute-img" src="https://i.imgur.com/lRVzVPL.png" alt="Cute robot" />
+    <br />
+    <a href="login.html" class="button-link">🔁 Annotate Again</a>
+  </div>
 </body>
 </html>
