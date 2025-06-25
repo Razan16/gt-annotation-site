@@ -72,13 +72,13 @@ body {
   background-color: #37474f;
 }
 
-textarea {
+.correction-box textarea {
   width: 100%;
-  margin-top: 8px;
-  padding: 6px;
+  margin-top: 10px;
+  padding: 8px;
   font-size: 14px;
   background-color: #1e1e1e;
   color: #fff;
-  border: 1px solid #555;
+  border: 1px solid #444;
   border-radius: 4px;
 }
