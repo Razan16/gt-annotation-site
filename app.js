@@ -1,66 +1,68 @@
 let segments = [];
 let currentSegment = 0;
+let results = [];
 
-// Load the JSON 
+const username = localStorage.getItem("annotatorName");
+if (!username) {
+  window.location.href = "login.html";
+}
+
 fetch('./public/gemini_video_analysis_output_v2.json')
   .then(response => response.json())
   .then(data => {
-    const transcription = data.video_analysis[0].transcription;
-    segments = transcription.slice(0, 5); // Only first 5 segments
+    segments = data.video_analysis[0].transcription.slice(0, 5);
     loadSegment(currentSegment);
     updateProgress();
   });
 
-// Load the selected segment
 function loadSegment(index) {
-  const segment = segments[index];
+  const seg = segments[index];
   const annotationDiv = document.getElementById("annotation-section");
-  const videoPlayer = document.getElementById("videoPlayer");
+  annotationDiv.innerHTML = "";
 
-  annotationDiv.innerHTML = ""; // Clear previous segment
-
-  const textareaId = `correctionBox-${index}`;
+  const textareaId = `correction-${index}`;
+  const saved = results[index] || { status: null, comment: "" };
 
   const block = document.createElement("div");
-  block.className = "annotation-block active";
+  block.className = "annotation-block";
   block.innerHTML = `
-    <h3>Segment ${index + 1} of ${segments.length}</h3>
-    <p><strong>Speaker:</strong> ${segment.speaker}</p>
-    <p><strong>Time:</strong> ${segment.timestamp}</p>
-    <p><strong>Utterance:</strong> ${segment.utterance}</p>
+    <h3>Segment ${index + 1}</h3>
+    <p><strong>Speaker:</strong> ${seg.speaker}</p>
+    <p><strong>Time:</strong> ${seg.timestamp}</p>
+    <p><strong>Utterance:</strong> ${seg.utterance}</p>
 
-    <div class="button-group">
-      <button onclick="markCorrect('${textareaId}')">✅ Correct</button>
-      <button onclick="markIncorrect('${textareaId}')">❌ Incorrect</button>
-    </div>
+    <button onclick="markCorrect(${index})" ${saved.status === 'correct' ? 'disabled' : ''}>✅ Correct</button>
+    <button onclick="markIncorrect(${index})">❌ Incorrect</button>
 
-    <div id="${textareaId}" class="correction-box" style="display:none;">
-      <textarea placeholder="Write your correction or comment..."></textarea>
+    <div id="${textareaId}" style="display:${saved.status === 'incorrect' ? 'block' : 'none'};">
+      <textarea placeholder="Write correction..." oninput="updateComment(${index}, this.value)">${saved.comment}</textarea>
     </div>
   `;
 
+  document.getElementById("videoPlayer").currentTime = timestampToSeconds(seg.timestamp);
   annotationDiv.appendChild(block);
-
-  // Sync video
-  videoPlayer.currentTime = timestampToSeconds(segment.timestamp);
 }
 
-// Convert MM:SS to total seconds
 function timestampToSeconds(ts) {
   const [min, sec] = ts.split(":").map(Number);
   return min * 60 + sec;
 }
 
-// Show/hide correction box
-function markCorrect(textareaId) {
-  document.getElementById(textareaId).style.display = "none";
+function markCorrect(index) {
+  results[index] = { status: "correct", comment: "" };
+  loadSegment(index);
 }
 
-function markIncorrect(textareaId) {
-  document.getElementById(textareaId).style.display = "block";
+function markIncorrect(index) {
+  results[index] = results[index] || { status: "incorrect", comment: "" };
+  results[index].status = "incorrect";
+  loadSegment(index);
 }
 
-// Navigation
+function updateComment(index, value) {
+  results[index].comment = value;
+}
+
 document.getElementById("prevSegment").onclick = () => {
   if (currentSegment > 0) {
     currentSegment--;
@@ -78,14 +80,18 @@ document.getElementById("nextSegment").onclick = () => {
 };
 
 document.getElementById("replaySegment").onclick = () => {
-  const video = document.getElementById("videoPlayer");
-  const timestamp = segments[currentSegment].timestamp;
-  video.currentTime = timestampToSeconds(timestamp);
-  video.play();
+  const ts = segments[currentSegment].timestamp;
+  document.getElementById("videoPlayer").currentTime = timestampToSeconds(ts);
+  document.getElementById("videoPlayer").play();
 };
 
 function updateProgress() {
-  const total = segments.length;
-  document.getElementById("progressBar").textContent =
-    `Segment ${currentSegment + 1} of ${total} evaluated`;
+  document.getElementById("progressBar").innerText = `Segment ${currentSegment + 1} of ${segments.length}`;
 }
+
+document.getElementById("submitResults").onclick = () => {
+  const previousResults = JSON.parse(localStorage.getItem("results") || "{}");
+  previousResults[username] = results;
+  localStorage.setItem("results", JSON.stringify(previousResults));
+  window.location.href = "thankyou.html";
+};
