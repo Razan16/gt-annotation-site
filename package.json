@@ -1,15 +1,13 @@
 {
   "name": "gt-annotation-site",
   "version": "1.0.0",
+  "description": "Ground Truth Annotation for Wellness Dataset",
   "main": "server.js",
-  "dependencies": {
-    "express": "^4.21.2"
-  },
   "scripts": {
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.2"
+  }
 }

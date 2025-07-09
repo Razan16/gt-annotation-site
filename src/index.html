@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ground Truth Testing for Wellness Dataset</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Ground Truth Testing for Wellness Dataset</h1>
+    <div class="progress-info">
+      <span id="evaluation-progress">Evaluation Progress: 0/0</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="content-wrapper">
+      <div class="video-section">
+        <video id="segmentVideo" width="100%" controls>
+          <source src="wellness2_participantP80_stamp20211024_125751_typeA.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="analysis-section">
+        <h2>Analysis Data</h2>
+        <p><strong>Timestamp:</strong> <span id="timestamp">00:00:00</span></p>
+
+        <div class="evaluation-block">
+          <div class="analysis-category">
+            <h3 id="nonverbal-behavior-type">Category</h3>
+            <p id="nonverbal-behavior-text">Loading...</p>
+            <div class="evaluation-buttons">
+              <button class="btn correct" onclick="markCorrect()">✔ Correct</button>
+              <button class="btn incorrect" onclick="markIncorrect()">✘ Incorrect</button>
+            </div>
+          </div>
+
+          <div class="input-block">
+            <label for="correction">Correction</label>
+            <textarea id="correction" placeholder="Suggest a correction if incorrect..."></textarea>
+          </div>
+
+          <div class="input-block">
+            <label for="comment">Comment</label>
+            <textarea id="comment" placeholder="Add a comment..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-row-button-layout">
+      <div class="button-pair">
+        <button onclick="replaySegment()">Replay Segment (2s buffer)</button>
+        <button onclick="previousSegment()">Previous Segment</button>
+      </div>
+      <div class="button-pair">
+        <button onclick="nextSegment()">Next Segment</button>
+        <span id="segment-counter" class="segment-indicator">Segment 1/1</span>
+      </div>
+    </div>
+
+    <div class="progress-bar">
+      <label>Overall Progress</label>
+      <progress id="overallProgress" value="0" max="0"></progress>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <button id="submitBtn" style="display:none;" onclick="submitEvaluation()">Submit Evaluation</button>
+    </div>
+  </main>
+
+  <footer>
+    <img src="jibo_footer.png" alt="Jibo robot with heart on screen" />
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
