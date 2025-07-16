@@ -22,32 +22,56 @@
           <source src="wellness2_participantP80_stamp20211024_125751_typeA.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+
+        <div id="help-reference-container">
+          <button id="show-help-btn" class="help-btn">
+            Show Help & Reference
+          </button>
+          <div id="help-images-box" class="help-reference-box" style="display:none;">
+            <button id="close-help-btn" class="close-help" title="Close">&times;</button>
+            <div class="help-images">
+              <div>
+                <div class="help-title">Plutchik's Wheel</div>
+                <img src="Plutchik's wheel.png" alt="Plutchik's Wheel" class="help-img" />
+              </div>
+              <div>
+                <div class="help-title">FAU Lookup Table</div>
+                <img src="FAU Lookup Table.png" alt="FAU Lookup Table" class="help-img" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="analysis-section">
         <h2>Analysis Data</h2>
-        <p><strong>Timestamp:</strong> <span id="timestamp">00:00:00</span></p>
+        <div id="overall-context-block" class="overall-context-block" style="margin-bottom:1em;"></div>
+        <p><strong>Context Mapping:</strong></p>
+        <div id="main-segment-context" class="main-segment-context"></div>
 
-        <div class="evaluation-block">
+        <!-- Main segment annotation block: moved up, right after mapping segment -->
+        <div class="evaluation-block" id="main-segment-annotation-block">
           <div class="analysis-category">
-            <h3 id="nonverbal-behavior-type">Category</h3>
-            <p id="nonverbal-behavior-text">Loading...</p>
             <div class="evaluation-buttons">
               <button class="btn correct" onclick="markCorrect()">✔ Correct</button>
               <button class="btn incorrect" onclick="markIncorrect()">✘ Incorrect</button>
             </div>
           </div>
-
           <div class="input-block">
             <label for="correction">Correction</label>
             <textarea id="correction" placeholder="Suggest a correction if incorrect..."></textarea>
           </div>
-
           <div class="input-block">
             <label for="comment">Comment</label>
             <textarea id="comment" placeholder="Add a comment..."></textarea>
           </div>
         </div>
+
+        <!-- Carousel for subsegments -->
+        <div id="subsegment-carousel" class="carousel-container"></div>
+
+        <!-- Subsegment annotation area -->
+        <div id="subsegment-annotation-block" style="display:none; margin-top:1em;"></div>
       </div>
     </div>
 
@@ -60,11 +84,6 @@
         <button onclick="nextSegment()">Next Segment</button>
         <span id="segment-counter" class="segment-indicator">Segment 1/1</span>
       </div>
-    </div>
-
-    <div class="progress-bar">
-      <label>Overall Progress</label>
-      <progress id="overallProgress" value="0" max="0"></progress>
     </div>
 
     <div style="text-align:center; margin-top:2rem;">
