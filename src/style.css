@@ -19,13 +19,12 @@ header {
 }
 
 header h1 {
-  font-size: 2rem;
+  font-size: 2.4rem;      /* Make the title bigger */
   font-weight: bold;
-  color: #ffffff;
-  letter-spacing: 0.02em;
+  color: #66b0ff;
+  letter-spacing: 0.04em;
   margin: 0;
   text-align: left;
-  text-transform: none;
 }
 
 .progress-info {
@@ -49,6 +48,10 @@ main {
   max-width: 100vw;
   box-sizing: border-box;
   overflow-x: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #0f1a20; /* Background under the static section */
 }
 
 .video-section {
@@ -157,7 +160,7 @@ textarea {
   resize: vertical;
 }
 
-/* ✅ 2-Row Button Layout */
+/* 2-Row Button Layout */
 .two-row-button-layout {
   display: flex;
   flex-direction: column;
@@ -176,8 +179,17 @@ textarea {
   margin-right: -0.5cm;
 }
 
-.button-pair button,
-.segment-indicator {
+.button-pair.single-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.button-pair button {
   padding: 0.7rem 1.5rem;
   background-color: #2c3e50;
   color: #ffffff;
@@ -187,8 +199,8 @@ textarea {
   font-size: 1rem;
   font-weight: bold;
   min-width: 220px;
-  width: 220px;      /* Fixed width for all buttons/indicators */
-  height: 54px;      /* Fixed height for all buttons/indicators */
+  width: 220px;      /* Fixed width for all buttons */
+  height: 54px;      /* Fixed height for all buttons */
   text-align: center;
   box-sizing: border-box;
   display: inline-block;
@@ -255,7 +267,7 @@ progress::-webkit-progress-value {
 /* Footer */
 footer {
   margin-top: 0;
-  padding: 1rem;
+  padding: 0.5cm;
   background-color: #1c2b33;
   display: flex;
   justify-content: center;
@@ -266,11 +278,6 @@ footer {
   bottom: 0;
   width: 100vw;
   z-index: 100;
-}
-
-footer img {
-  max-height: 90px; /* 1.5 times bigger than previous 60px */
-  object-fit: contain;
 }
 
 /* Login Page Centering & Styling */
@@ -461,4 +468,125 @@ footer img {
   border-radius: 10px;
   margin-bottom: 1.5em;
   opacity: 0.93;
+}
+
+/* Video Action Buttons Layout */
+.video-action-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.video-action-buttons button {
+  padding: 0.7rem 1.5rem;
+  background-color: #2c3e50;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  min-width: 220px;
+  width: 220px;      /* Fixed width for all buttons */
+  height: 54px;      /* Fixed height for all buttons */
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+/* Subsegment Styles */
+.all-subsegments-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+  margin: 2em 2cm 1em 2cm; /* 0.5cm from left and right border */
+  padding: 1em;
+  background: #17252c;
+  border-radius: 12px;
+  box-shadow: 0 0 16px #00000044;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+/* Each segment box */
+.subsegment-column {
+  background: #16222a;
+  border-radius: 8px;
+  padding: 1em;
+  min-width: 0;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* Subsegment item */
+.subsegment-item {
+  background: #14232e;
+  border-radius: 6px;
+  padding: 1em 1.2em;
+  box-shadow: 0 0 6px #0003;
+  color: #fff;
+  border: 2px solid #223344;
+  font-size: 1.05em;
+  margin-bottom: 0;
+}
+
+/* Evaluation buttons in one row, buttons fill container */
+.subsegment-item .evaluation-buttons {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  display: flex;
+  gap: 1em;
+  width: 100%;
+}
+
+.subsegment-item .btn {
+  flex: 1 1 0;
+  padding: 0.7rem 0;
+  background-color: #2c3e50;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-width: 0;
+  width: 100%;
+  height: 54px;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.subsegment-item .btn.correct {
+  background-color: #2e8540;
+}
+
+.subsegment-item .btn.incorrect {
+  background-color: #b92b27;
+}
+
+.subsegment-item .btn.active {
+  outline: 3px solid #ffffff88;
+}
+
+.subsegment-item textarea {
+  width: 100%;
+  height: 3rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #0d222f;
+  color: #ffffff;
+  resize: vertical;
+  margin-top: 0.3em;
+  margin-bottom: 0.7em;
 }

@@ -1,269 +1,248 @@
 {
-  "video_analysis": [
-    {
-      
-      "non_verbal_behavior_analysis": [
-        {
-          "behavior": "Looking Down",
-          "context": "Observed when Human was listening to Jibo's extended speech, processing information, or giving short answers.",
-          "timestamp": "01:39 (representative during Jibo's monologue)"
-        },
-        {
-          "behavior": "Smiling",
-          "context": "Expressed politeness, amusement, or positive affect in response to Jibo or own statements.",
-          "timestamp": "03:35 (representative of positive engagement)"
-        },
-        {
-          "behavior": "Head Nodding",
-          "context": "Used for affirmation ('Yes') or as a listening cue ('Okay') during Jibo's speech.",
-          "timestamp": "00:59 (representative of affirmative response)"
-        },
-        {
-          "behavior": "Expressions of mild frustration/confusion",
-          "context": "Observed when Jibo was malfunctioning and repeating itself at the beginning of the interaction.",
-          "timestamp": "00:47 (representative of reaction to technical issue)"
-        },
-        {
-          "behavior": "Hand interaction with Jibo",
-          "context": "Used to attempt to stop Jibo's repetitive speech (covering screen) or to respond as instructed (tapping screen).",
-          "timestamp": "00:44 (covering screen), 01:15 (tapping screen)"
-        },
-        {
-          "behavior": "Thinking Expression",
-          "context": "Briefly displayed (mouth slightly open, focused gaze) before answering Jibo's question about her favorite week.",
-          "timestamp": "02:41"
-        },
-        {
-          "behavior": "Yawn/Mouth Stretch",
-          "context": "Occurred once briefly during Jibo's long monologue, possibly indicating momentary fatigue or distraction.",
-          "timestamp": "02:42"
-        }
-      ],
-      "context_mapping": {
-        "overall_context": "The human (Gina) is participating in the final session of a multi-week wellness program facilitated by the Jibo robot. The session involves Jibo recapping topics covered (gratitude, meaningful connections, self-compassion, character strengths) and asking for feedback. There are initial technical difficulties with Jibo, which resolve before the main part of the session.",
-        "topic_shifts": [
+  "segments": [
+      {
+        "segment_id": "segment_001",
+        "timestamp_start": "00:00:00.000",
+        "timestamp_end": "00:01:45.000",
+        "topic": "Setup and Preparation",
+        "context": "The human is setting up the recording environment. He is seen adjusting objects, including his watch and other items near the camera, before briefly leaving the frame.",
+        "non_verbal_behavior_analysis": [
           {
-            "timestamp": "00:00",
-            "topic": "Initial interaction attempts, Jibo exhibits technical difficulties with repetitive speech."
+            "behavior": "Concentration Gaze",
+            "context": "Looking intently off-camera, likely at the recording device or setup.",
+            "timestamp": "00:00:03.100"
           },
           {
-            "timestamp": "00:47",
-            "topic": "Human expresses frustration with technical issue and intent to exit."
+            "behavior": "Object Manipulation",
+            "context": "Fiddling with a watch, attempting to put it on, indicating preparation for a task.",
+            "timestamp": "00:00:13.500"
+          }
+        ],
+        "fau_analysis": [
+          {
+            "fau_code": "AU 4",
+            "description": "Brow Lowerer",
+            "timestamp": "00:00:03.100",
+            "linked_non_verbal_behavior": "Concentration Gaze"
           },
           {
-            "timestamp": "00:51",
-            "topic": "Jibo successfully initiates the final wellness session conversation."
-          },
+            "fau_code": "AU 0",
+            "description": "Neutral Face",
+            "timestamp": "00:00:13.500",
+            "linked_non_verbal_behavior": "Object Manipulation"
+          }
+        ],
+        "plutchiks_wheel_mapping": [
           {
-            "timestamp": "00:54",
-            "topic": "Jibo asks about the Human's use of signature strengths from a previous session."
-          },
+            "emotion_category": "Anticipation",
+            "reasoning": "The user's preparatory actions and focused expression suggest he is getting ready for the main task of the study.",
+            "timestamp": "00:00:10.000",
+            "primary_emotion": "Anticipation",
+            "secondary_dyad": "N/A"
+          }
+        ],
+        "emotion_intensity_measurement": [
           {
-            "timestamp": "01:17",
-            "topic": "Jibo prematurely thanks Human for sharing experience with signature strengths."
-          },
-          {
-            "timestamp": "01:19",
-            "topic": "Human clarifies she hadn't shared yet."
-          },
-          {
-            "timestamp": "01:25",
-            "topic": "Jibo begins a review of all wellness activities practiced over the weeks."
-          },
-          {
-            "timestamp": "01:38",
-            "topic": "Recap of Week 1: Gratitude."
-          },
-          {
-            "timestamp": "01:54",
-            "topic": "Recap of Week 2: Meaningful Connections."
-          },
-          {
-            "timestamp": "02:05",
-            "topic": "Recap of Week 3: Self-Compassion."
-          },
-          {
-            "timestamp": "02:26",
-            "topic": "Recap of final week: Character Strengths."
-          },
-          {
-            "timestamp": "02:35",
-            "topic": "Jibo asks Human about her favorite week/topic."
-          },
-          {
-            "timestamp": "02:43",
-            "topic": "Human identifies 'Gratitude' as her favorite."
-          },
-          {
-            "timestamp": "02:52",
-            "topic": "Jibo concludes the wellness sessions and summarizes their purpose."
-          },
-          {
-            "timestamp": "03:22",
-            "topic": "Jibo informs Human about follow-up from MIT Media Lab for the study."
-          },
-          {
-            "timestamp": "03:27",
-            "topic": "Jibo invites continued interaction and Human expresses thanks, ending the session."
+            "emotion_category": "Anticipation",
+            "intensity_level": "Low",
+            "timestamp": "00:00:10.000",
+            "justification": "The human's actions are calm and deliberate. Facial expressions are mostly neutral with fleeting signs of concentration."
           }
         ]
       },
-      "fau_analysis": [
-        {
-          "fau_code": "AU6, AU12",
-          "description": "Cheek Raiser, Lip Corner Puller",
-          "timestamp": "00:01",
-          "linked_non_verbal_behavior": "Smiling"
-        },
-        {
-          "fau_code": "AU4, AU7 (possible)",
-          "description": "Brow Lowerer, Lid Tightener",
-          "timestamp": "00:23",
-          "linked_non_verbal_behavior": "Expressions of mild frustration/confusion"
-        },
-        {
-          "fau_code": "AU1, AU2, AU4 (slight)",
-          "description": "Inner Brow Raiser, Outer Brow Raiser, Brow Lowerer (slight)",
-          "timestamp": "00:33",
-          "linked_non_verbal_behavior": "Expressions of mild frustration/confusion"
-        },
-        {
-          "fau_code": "AU4, AU24 (possible)",
-          "description": "Brow Lowerer, Lip Pressor",
-          "timestamp": "00:47",
-          "linked_non_verbal_behavior": "Expressions of mild frustration/confusion"
-        },
-        {
-          "fau_code": "AU6 (slight), AU12 (slight)",
-          "description": "Cheek Raiser (slight), Lip Corner Puller (slight) during nod",
-          "timestamp": "00:59",
-          "linked_non_verbal_behavior": "Head Nodding, Smiling (subtle)"
-        },
-        {
-          "fau_code": "AU6 (slight), AU12 (slight)",
-          "description": "Cheek Raiser (slight), Lip Corner Puller (slight) during nod",
-          "timestamp": "01:12",
-          "linked_non_verbal_behavior": "Head Nodding, Smiling (subtle)"
-        },
-        {
-          "fau_code": "AU6, AU12",
-          "description": "Cheek Raiser, Lip Corner Puller",
-          "timestamp": "01:20",
-          "linked_non_verbal_behavior": "Smiling"
-        },
-        {
-          "fau_code": "AU25, AU26 (slight), AU4 (slight)",
-          "description": "Lips Part, Jaw Drop (slight), Brow Lowerer (slight for concentration)",
-          "timestamp": "02:41",
-          "linked_non_verbal_behavior": "Thinking Expression"
-        },
-        {
-          "fau_code": "AU26, AU27",
-          "description": "Jaw Drop, Mouth Stretch",
-          "timestamp": "02:42",
-          "linked_non_verbal_behavior": "Yawn/Mouth Stretch"
-        },
-        {
-          "fau_code": "AU6, AU12",
-          "description": "Cheek Raiser, Lip Corner Puller",
-          "timestamp": "02:44",
-          "linked_non_verbal_behavior": "Smiling"
-        },
-        {
-          "fau_code": "AU6, AU12",
-          "description": "Cheek Raiser, Lip Corner Puller (sustained)",
-          "timestamp": "03:35",
-          "linked_non_verbal_behavior": "Smiling"
-        }
-      ],
-      "plutchiks_wheel_mapping": [
-        {
-          "emotion_category": "Joy (Amusement/Politeness)",
-          "reasoning": "Social smile (AU6+12) in affirmative response.",
-          "timestamp": "00:01"
-        },
-        {
-          "emotion_category": "Annoyance (mild Anger) / Vigilance (Anticipation)",
-          "reasoning": "Brow lower (AU4), tense lids (AU7), verbal expression of problem with Jibo's malfunction.",
-          "timestamp": "00:47"
-        },
-        {
-          "emotion_category": "Acceptance / Interest",
-          "reasoning": "Nodding with slight smile (AU6+12) in response to Jibo.",
-          "timestamp": "00:59"
-        },
-        {
-          "emotion_category": "Joy (Amusement) / Surprise (mild)",
-          "reasoning": "Smile (AU6+12), head tilt, verbal correction to Jibo's premature thanks.",
-          "timestamp": "01:20"
-        },
-        {
-          "emotion_category": "Pensiveness (related to Anticipation/Interest)",
-          "reasoning": "Thinking facial expression (AU25, slight AU26, AU4) before answering.",
-          "timestamp": "02:41"
-        },
-        {
-          "emotion_category": "Boredom (mild Disgust/Sadness variant) or Fatigue",
-          "reasoning": "Yawn (AU26, AU27) during long monologue, indicating low engagement or tiredness.",
-          "timestamp": "02:42"
-        },
-        {
-          "emotion_category": "Joy (Satisfaction)",
-          "reasoning": "Smile (AU6+12) when stating favorite week.",
-          "timestamp": "02:44"
-        },
-        {
-          "emotion_category": "Joy / Appreciation (Trust/Acceptance)",
-          "reasoning": "Sustained smile (AU6+AU12), warm verbal thanks at the end of the interaction.",
-          "timestamp": "03:35"
-        }
-      ],
-      "emotion_intensity_measurement": [
-        {
-          "emotion_category": "Joy",
-          "intensity_level": "Low",
-          "timestamp": "00:01"
-        },
-        {
-          "emotion_category": "Annoyance",
-          "intensity_level": "Low-Medium",
-          "timestamp": "00:47"
-        },
-        {
-          "emotion_category": "Acceptance",
-          "intensity_level": "Low",
-          "timestamp": "00:59"
-        },
-        {
-          "emotion_category": "Joy (Amusement)",
-          "intensity_level": "Low-Medium",
-          "timestamp": "01:20"
-        },
-        {
-          "emotion_category": "Pensiveness",
-          "intensity_level": "Low",
-          "timestamp": "02:41"
-        },
-        {
-          "emotion_category": "Boredom/Fatigue",
-          "intensity_level": "Low",
-          "timestamp": "02:42"
-        },
-        {
-          "emotion_category": "Joy (Satisfaction)",
-          "intensity_level": "Medium",
-          "timestamp": "02:44"
-        },
-        {
-          "emotion_category": "Joy/Appreciation",
-          "intensity_level": "Medium-High",
-          "timestamp": "03:35"
-        }
-      ],
-      "emotional_arc": {
-        "overall_emotional_arc": "The Human's emotional journey began with polite engagement, transitioned to mild confusion and frustration due to Jibo's technical issues. Once resolved, she became an attentive listener, showing polite engagement and amusement at Jibo's conversational quirks. A brief moment of distraction/fatigue (indicated by a yawn) was observed during Jibo's lengthy monologue, but she quickly re-engaged. The interaction concluded with expressed satisfaction and genuine warmth, indicating a positive overall experience with the session despite initial setbacks.",
-        "emotion_category": "Joy/Appreciation (dominant at conclusion)"
+      {
+        "segment_id": "segment_002",
+        "timestamp_start": "00:01:45.001",
+        "timestamp_end": "00:03:30.000",
+        "topic": "Absence",
+        "context": "The human has left the frame. The camera is recording the static environment. No emotional analysis of the human is possible during this time.",
+        "non_verbal_behavior_analysis": [],
+        "fau_analysis": [],
+        "plutchiks_wheel_mapping": [],
+        "emotion_intensity_measurement": []
+      },
+      {
+        "segment_id": "segment_003",
+        "timestamp_start": "00:03:30.001",
+        "timestamp_end": "11:25:00.000",
+        "topic": "Interaction and Troubleshooting",
+        "context": "The human returns and begins a long, non-verbal interaction with the Jibo device, his phone, and a study manual. He appears focused on troubleshooting and understanding the instructions.",
+        "non_verbal_behavior_analysis": [
+          {
+            "behavior": "Contemplative Pose",
+            "context": "Resting chin on hand while looking at the Jibo device, indicating thought and analysis.",
+            "timestamp": "09:49:00.000"
+          },
+          {
+            "behavior": "Reading with Concentration",
+            "context": "Closely examining the 'Jibo Wellness Study' manual, suggesting an attempt to understand the procedure.",
+            "timestamp": "10:05:00.000"
+          },
+          {
+            "behavior": "Frustration Cue",
+            "context": "Briefly touching his forehead while looking between the phone and the Jibo, a common sign of cognitive load or frustration.",
+            "timestamp": "10:55:00.000"
+          }
+        ],
+        "fau_analysis": [
+          {
+            "fau_code": "AU 25, AU 28",
+            "description": "Lips Part, Lip Suck",
+            "timestamp": "09:49:00.000",
+            "linked_non_verbal_behavior": "Contemplative Pose"
+          },
+          {
+            "fau_code": "AU 4, AU 7",
+            "description": "Brow Lowerer, Lid Tightener",
+            "timestamp": "10:05:00.000",
+            "linked_non_verbal_behavior": "Reading with Concentration"
+          },
+          {
+            "fau_code": "AU 4, AU 17",
+            "description": "Brow Lowerer, Chin Raiser",
+            "timestamp": "11:21:00.000",
+            "linked_non_verbal_behavior": "Frustration Cue"
+          }
+        ],
+        "plutchiks_wheel_mapping": [
+          {
+            "emotion_category": "Interest",
+            "reasoning": "The user is actively engaged with the materials, showing dedication to figuring out the task.",
+            "timestamp": "10:05:00.000",
+            "primary_emotion": "Interest",
+            "secondary_dyad": "N/A"
+          },
+          {
+            "emotion_category": "Annoyance",
+            "reasoning": "The prolonged troubleshooting and micro-expressions like brow lowering indicate growing frustration.",
+            "timestamp": "11:21:00.000",
+            "primary_emotion": "Annoyance",
+            "secondary_dyad": "N/A"
+          }
+        ],
+        "emotion_intensity_measurement": [
+          {
+            "emotion_category": "Interest",
+            "intensity_level": "Medium",
+            "timestamp": "10:05:00.000",
+            "justification": "Sustained focus on the manual and device for an extended period."
+          },
+          {
+            "emotion_category": "Annoyance",
+            "intensity_level": "Low",
+            "timestamp": "11:21:00.000",
+            "justification": "The frustration is subtle at this stage, expressed through minor facial cues rather than overt actions or speech."
+          }
+        ]
+      },
+      {
+        "segment_id": "segment_004",
+        "timestamp_start": "11:25:00.001",
+        "timestamp_end": "13:20:00.000",
+        "topic": "Voice Command Failure",
+        "context": "The human attempts to issue a direct voice command, 'Hey Jibo, I want to log my mood,' but the device fails to respond correctly, leading to visible frustration.",
+        "non_verbal_behavior_analysis": [
+          {
+            "behavior": "Frowning",
+            "context": "Visible and sustained frowning after the Jibo fails to understand the command.",
+            "timestamp": "12:43:00.000"
+          },
+          {
+            "behavior": "Pursed Lips",
+            "context": "Lips are pressed together, indicating withheld annoyance and disappointment.",
+            "timestamp": "12:28:00.000"
+          },
+          {
+            "behavior": "Head Shake",
+            "context": "A slight, sharp shake of the head in negation/frustration after the second failed attempt.",
+            "timestamp": "11:32:00.000"
+          }
+        ],
+        "fau_analysis": [
+          {
+            "fau_code": "AU 4",
+            "description": "Brow Lowerer",
+            "timestamp": "12:43:00.000",
+            "linked_non_verbal_behavior": "Frowning"
+          },
+          {
+            "fau_code": "AU 24",
+            "description": "Lip Pressor",
+            "timestamp": "12:28:00.000",
+            "linked_non_verbal_behavior": "Pursed Lips"
+          }
+        ],
+        "plutchiks_wheel_mapping": [
+          {
+            "emotion_category": "Annoyance",
+            "reasoning": "The user's repeated failed attempts and clear facial expressions (frowning, lip pressing) point directly to annoyance and frustration.",
+            "timestamp": "12:43:00.000",
+            "primary_emotion": "Annoyance",
+            "secondary_dyad": "Contempt"
+          }
+        ],
+        "emotion_intensity_measurement": [
+          {
+            "emotion_category": "Annoyance",
+            "intensity_level": "High",
+            "timestamp": "12:43:00.000",
+            "justification": "Intensity escalated from the previous segment. The combination of sustained AU4, vocal tone in commands, and repeated attempts shows a peak in frustration."
+          }
+        ]
+      },
+      {
+        "segment_id": "segment_005",
+        "timestamp_start": "13:20:00.001",
+        "timestamp_end": "15:40.940",
+        "topic": "Final Attempt and Confusion",
+        "context": "Following the failed voice commands, the human returns to the study manual, looking closely and appearing confused, before making one last attempt to speak to the robot.",
+        "non_verbal_behavior_analysis": [
+          {
+            "behavior": "Intense Scrutiny",
+            "context": "Leaning in very close to the manual, reading the instructions with a puzzled expression.",
+            "timestamp": "14:26:00.000"
+          },
+          {
+            "behavior": "Forehead Rub",
+            "context": "Rubbing his forehead after a final failed interaction, indicating stress and cognitive exhaustion.",
+            "timestamp": "14:55:00.000"
+          }
+        ],
+        "fau_analysis": [
+          {
+            "fau_code": "AU 4, AU 22",
+            "description": "Brow Lowerer, Lip Funneler",
+            "timestamp": "14:21:00.000",
+            "linked_non_verbal_behavior": "Intense Scrutiny"
+          },
+          {
+            "fau_code": "AU 4",
+            "description": "Brow Lowerer",
+            "timestamp": "14:55:00.000",
+            "linked_non_verbal_behavior": "Forehead Rub"
+          }
+        ],
+        "plutchiks_wheel_mapping": [
+          {
+            "emotion_category": "Disappointment",
+            "reasoning": "The user's slumped posture, head lowering, and final, less forceful interaction attempt suggest a shift from active frustration to resignation and disappointment.",
+            "timestamp": "14:55:00.000",
+            "primary_emotion": "Sadness",
+            "secondary_dyad": "Disappointment"
+          }
+        ],
+        "emotion_intensity_measurement": [
+          {
+            "emotion_category": "Disappointment",
+            "intensity_level": "Medium",
+            "timestamp": "14:55:00.000",
+            "justification": "While the overt frustration has subsided, the nonverbal cues like rubbing his forehead and looking down show a clear, sustained negative emotional state."
+          }
+        ]
       }
+    ],
+    "overall_emotional_arc": {
+      "arc_description": "The emotional journey of the user begins with a state of neutral anticipation and focus. As he encounters difficulties operating the Jibo device, his emotion shifts to low-level annoyance and concentration. This escalates to a peak of high-intensity frustration when his direct voice commands repeatedly fail. The arc concludes with a transition from active frustration to a state of medium-intensity disappointment and confused resignation as he is unable to complete the task.",
+      "predominant_emotion_category": "Annoyance"
     }
-  ]
 }

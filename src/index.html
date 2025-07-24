@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ground Truth Testing for Wellness Dataset</title>
   <link rel="stylesheet" href="style.css" />
+  <script>
+    // Redirect to login if not signed in
+    if (!localStorage.getItem("annotatorName")) {
+      window.location.href = "login.html";
+    }
+  </script>
 </head>
 
 <body>
@@ -23,23 +29,11 @@
           Your browser does not support the video tag.
         </video>
 
-        <div id="help-reference-container">
-          <button id="show-help-btn" class="help-btn">
-            Show Help & Reference
-          </button>
-          <div id="help-images-box" class="help-reference-box" style="display:none;">
-            <button id="close-help-btn" class="close-help" title="Close">&times;</button>
-            <div class="help-images">
-              <div>
-                <div class="help-title">Plutchik's Wheel</div>
-                <img src="Plutchik's wheel.png" alt="Plutchik's Wheel" class="help-img" />
-              </div>
-              <div>
-                <div class="help-title">FAU Lookup Table</div>
-                <img src="FAU Lookup Table.png" alt="FAU Lookup Table" class="help-img" />
-              </div>
-            </div>
-          </div>
+        <!-- Video action buttons in one row under the video -->
+        <div class="video-action-buttons">
+          <button onclick="replaySegment()">Replay Segment (2s buffer)</button>
+          <button onclick="previousSegment()">Previous Segment</button>
+          <button id="next-segment-btn" onclick="nextSegment()">Next Segment</button>
         </div>
       </div>
 
@@ -49,7 +43,6 @@
         <p><strong>Context Mapping:</strong></p>
         <div id="main-segment-context" class="main-segment-context"></div>
 
-        <!-- Main segment annotation block: moved up, right after mapping segment -->
         <div class="evaluation-block" id="main-segment-annotation-block">
           <div class="analysis-category">
             <div class="evaluation-buttons">
@@ -72,28 +65,38 @@
 
         <!-- Subsegment annotation area -->
         <div id="subsegment-annotation-block" style="display:none; margin-top:1em;"></div>
-      </div>
-    </div>
 
-    <div class="two-row-button-layout">
-      <div class="button-pair">
-        <button onclick="replaySegment()">Replay Segment (2s buffer)</button>
-        <button onclick="previousSegment()">Previous Segment</button>
+        <!-- Move help reference container to the bottom of analysis-section -->
+        <div id="help-reference-container">
+          <button id="show-help-btn" class="help-btn">
+            Show Help & Reference
+          </button>
+          <div id="help-images-box" class="help-reference-box" style="display:none;">
+            <button id="close-help-btn" class="close-help" title="Close">&times;</button>
+            <div class="help-images">
+              <div>
+                <div class="help-title">Plutchik's Wheel</div>
+                <img src="Plutchik's wheel.png" alt="Plutchik's Wheel" class="help-img" />
+              </div>
+              <div>
+                <div class="help-title">FAU Lookup Table</div>
+                <img src="FAU Lookup Table.png" alt="FAU Lookup Table" class="help-img" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="button-pair">
-        <button onclick="nextSegment()">Next Segment</button>
-        <span id="segment-counter" class="segment-indicator">Segment 1/1</span>
-      </div>
-    </div>
+    </div> <!-- end of .content-wrapper -->
+
+    <!-- New subsegment columns container before footer -->
+    <div id="all-subsegments-container" class="all-subsegments-container"></div>
 
     <div style="text-align:center; margin-top:2rem;">
       <button id="submitBtn" style="display:none;" onclick="submitEvaluation()">Submit Evaluation</button>
     </div>
   </main>
 
-  <footer>
-    <img src="jibo_footer.png" alt="Jibo robot with heart on screen" />
-  </footer>
+  <footer></footer>
 
   <script src="app.js"></script>
 </body>
