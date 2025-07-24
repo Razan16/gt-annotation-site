@@ -1,8 +1,9 @@
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  const username = document.getElementById("username").value.trim();
-  if (username) {
-    localStorage.setItem("annotatorName", username);
-    window.location.href = "index.html";
+document.getElementById("startBtn").onclick = function () {
+  const name = document.getElementById("username").value.trim();
+  if (name) {
+    localStorage.setItem("annotatorName", name);
+    window.location.href = "main.html";
+  } else {
+    alert("Please enter your name.");
   }
-});
+};

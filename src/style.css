@@ -525,6 +525,10 @@ footer {
   height: 100%;
 }
 
+.subsegment-column > div:first-child {
+  text-align: center;
+}
+
 /* Subsegment item */
 .subsegment-item {
   background: #14232e;
@@ -549,33 +553,100 @@ footer {
 .subsegment-item .btn {
   flex: 1 1 0;
   padding: 0.7rem 0;
-  background-color: #2c3e50;
-  color: #ffffff;
+  background: linear-gradient(90deg, #1f2d34 60%, #223344 100%);
+  color: #b6ccd8;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.15em;
   font-weight: bold;
-  min-width: 0;
-  width: 100%;
-  height: 54px;
-  text-align: center;
-  box-sizing: border-box;
-  display: inline-block;
-  transition: background 0.2s;
-  white-space: nowrap;
+  box-shadow: 0 2px 12px #0004;
+  transition: background 0.2s, color 0.2s, transform 0.15s, outline 0.2s;
+  margin-bottom: 0;
+  position: relative;
 }
 
+/* Correct button: always green, never blue */
+.evaluation-buttons .btn.correct {
+  background: linear-gradient(90deg, #236c33 60%, #223344 100%);
+  color: #e1ffe1;
+}
+
+.evaluation-buttons .btn.correct:hover {
+  background: linear-gradient(90deg, #2e8540 60%, #236c33 100%);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px #2e854088;
+}
+
+.evaluation-buttons .btn.correct.active {
+  background: linear-gradient(90deg, #2e8540 60%, #236c33 100%);
+  color: #fff;
+  outline: 3px solid #2e8540;
+  box-shadow: 0 0 24px #2e854088;
+  transform: scale(1.07);
+}
+
+/* Incorrect button: always red, never blue */
+.evaluation-buttons .btn.incorrect {
+  background: linear-gradient(90deg, #7c2323 60%, #223344 100%);
+  color: #ffe1e1;
+}
+
+.evaluation-buttons .btn.incorrect:hover {
+  background: linear-gradient(90deg, #b92b27 60%, #7c2323 100%);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px #b92b2788;
+}
+
+.evaluation-buttons .btn.incorrect.active {
+  background: linear-gradient(90deg, #b92b27 60%, #7c2323 100%);
+  color: #fff;
+  outline: 3px solid #b92b27;
+  box-shadow: 0 0 24px #b92b2788;
+  transform: scale(1.07);
+}
+
+/* Same for subsegment buttons */
 .subsegment-item .btn.correct {
-  background-color: #2e8540;
+  background: linear-gradient(90deg, #236c33 60%, #223344 100%);
+  color: #e1ffe1;
+}
+
+.subsegment-item .btn.correct:hover {
+  background: linear-gradient(90deg, #2e8540 60%, #236c33 100%);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px #2e854088;
+}
+
+.subsegment-item .btn.correct.active {
+  background: linear-gradient(90deg, #2e8540 60%, #236c33 100%);
+  color: #fff;
+  outline: 3px solid #2e8540;
+  box-shadow: 0 0 24px #2e854088;
+  transform: scale(1.07);
 }
 
 .subsegment-item .btn.incorrect {
-  background-color: #b92b27;
+  background: linear-gradient(90deg, #7c2323 60%, #223344 100%);
+  color: #ffe1e1;
 }
 
-.subsegment-item .btn.active {
-  outline: 3px solid #ffffff88;
+.subsegment-item .btn.incorrect:hover {
+  background: linear-gradient(90deg, #b92b27 60%, #7c2323 100%);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px #b92b2788;
+}
+
+.subsegment-item .btn.incorrect.active {
+  background: linear-gradient(90deg, #b92b27 60%, #7c2323 100%);
+  color: #fff;
+  outline: 3px solid #b92b27;
+  box-shadow: 0 0 24px #b92b2788;
+  transform: scale(1.07);
 }
 
 .subsegment-item textarea {
@@ -589,4 +660,159 @@ footer {
   resize: vertical;
   margin-top: 0.3em;
   margin-bottom: 0.7em;
+}
+
+
+
+/* Main Page Styles */
+.main-video-list-container {
+  max-width: 900px;
+  margin: 3em auto 4em auto;
+  background: #16222a;
+  border-radius: 16px;
+  box-shadow: 0 0 32px #00000066;
+  padding: 2.5em 2em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-video-list-title {
+  text-align: center;
+  font-size: 2.3em;
+  color: #66b0ff;
+  margin-bottom: 1.5em;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 8px #0006;
+}
+
+#video-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5em;
+}
+
+.video-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  width: 100%;
+  padding: 1.2em 0.5em;
+  font-size: 1.15em;
+  background: linear-gradient(90deg, #1f2d34 60%, #223344 100%);
+  color: #b6ccd8;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 12px #0004;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.video-btn:hover {
+  background: linear-gradient(90deg, #2c3e50 60%, #66b0ff 100%);
+  color: #fff;
+  transform: scale(1.03);
+}
+
+.video-btn .video-icon {
+  font-size: 1.5em;
+  color: #66b0ff;
+}
+
+.soon-btn {
+  background: #222 !important;
+  color: #888 !important;
+  cursor: not-allowed !important;
+  font-style: italic;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.video-btn.finished {
+  background: linear-gradient(90deg, #2e8540 60%, #66b0ff 100%);
+  color: #fff;
+  border: 2px solid #2e8540;
+  cursor: default;
+  opacity: 0.85;
+}
+
+.video-btn.finished .video-icon {
+  color: #2e8540;
+}
+
+.thankyou-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.thankyou-box {
+  font-size: 2.5em;
+  color: #66b0ff;
+  margin-bottom: 1.5em;
+  font-weight: bold;
+  text-shadow: 0 2px 8px #0006;
+}
+
+.back-main-btn {
+  margin-top: 1em;
+  padding: 1em 2.5em;
+  font-size: 1.3em;
+  background: linear-gradient(90deg, #1f2d34 60%, #66b0ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 12px #0004;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  text-align: center;
+}
+
+.back-main-btn:hover {
+  background: linear-gradient(90deg, #2e8540 60%, #66b0ff 100%);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.submit-btn {
+  background-color: #2e8540;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  min-width: 220px;
+  width: 220px;
+  height: 54px;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: 0.5em;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+.submit-btn:hover {
+  background-color: #256c33;
+  color: #fff;
+  transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .main-video-list-container {
+    padding: 1em 0.5em;
+  }
+  #video-list {
+    grid-template-columns: 1fr;
+    gap: 1em;
+  }
 }

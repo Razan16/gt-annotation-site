@@ -170,59 +170,68 @@ function renderAllSubsegmentsColumns() {
     return;
   }
 
-  // Split subsegments into up to 4 columns
-  const numColumns = Math.min(4, subsegments.length || 1);
-  const columns = Array.from({ length: numColumns }, () => []);
+  // Group subsegments by category/type
+  const categories = [
+    "Non-Verbal Behavior",
+    "FAU Codes",
+    "Plutchik’s Wheel",
+    "Emotional Intensity"
+  ];
+  const grouped = {};
+  categories.forEach(cat => grouped[cat] = []);
   subsegments.forEach((sub, idx) => {
-    columns[idx % numColumns].push({ ...sub, idx });
+    grouped[sub.type].push({ ...sub, idx });
   });
 
-  // Create columns
-  columns.forEach(col => {
-    const colDiv = document.createElement("div");
-    colDiv.className = "subsegment-column";
-    col.forEach(sub => {
-      let text = "";
-      if (sub.type === "Non-Verbal Behavior") {
-        text = `<b>Behavior:</b> ${sub.raw.behavior || ""}<br>
-                <b>Context:</b> ${sub.raw.context || ""}<br>
-                <b>Timestamp:</b> ${sub.raw.timestamp || ""}`;
-      } else if (sub.type === "FAU Codes") {
-        text = `<b>FAU Code:</b> ${sub.raw.fau_code || ""}<br>
-                <b>Description:</b> ${sub.raw.description || ""}<br>
-                <b>Linked Non-Verbal:</b> ${sub.raw.linked_non_verbal_behavior || ""}<br>
-                <b>Timestamp:</b> ${sub.raw.timestamp || ""}`;
-      } else if (sub.type === "Plutchik’s Wheel") {
-        text = `<b>Emotion Category:</b> ${sub.raw.emotion_category || ""}<br>
-                <b>Reasoning:</b> ${sub.raw.reasoning || ""}<br>
-                <b>Primary Emotion:</b> ${sub.raw.primary_emotion || ""}<br>
-                <b>Secondary Dyad:</b> ${sub.raw.secondary_dyad || ""}<br>
-                <b>Timestamp:</b> ${sub.raw.timestamp || ""}`;
-      } else if (sub.type === "Emotional Intensity") {
-        text = `<b>Emotion Category:</b> ${sub.raw.emotion_category || ""}<br>
-                <b>Intensity Level:</b> ${sub.raw.intensity_level || ""}<br>
-                <b>Justification:</b> ${sub.raw.justification || ""}<br>
-                <b>Timestamp:</b> ${sub.raw.timestamp || ""}`;
-      }
-      colDiv.innerHTML += `
-        <div class="subsegment-item" data-subidx="${sub.idx}">
-          <div>${text}</div>
-          <div class="evaluation-buttons">
-            <button type="button" class="btn correct" onclick="markSubCorrectColumn(${sub.idx})">✔ Correct</button>
-            <button type="button" class="btn incorrect" onclick="markSubIncorrectColumn(${sub.idx})">✘ Incorrect</button>
+  // Create columns for each category (in order)
+  categories.forEach(cat => {
+    if (grouped[cat].length > 0) {
+      const colDiv = document.createElement("div");
+      colDiv.className = "subsegment-column";
+      colDiv.innerHTML += `<div style="font-weight:bold; color:#66b0ff; margin-bottom:0.7em; font-size:1.1em;">${cat}</div>`;
+      grouped[cat].forEach(sub => {
+        let text = "";
+        if (sub.type === "Non-Verbal Behavior") {
+          text = `<b>Behavior:</b> ${sub.raw.behavior || ""}<br>
+                  <b>Context:</b> ${sub.raw.context || ""}<br>
+                  <b>Timestamp:</b> ${sub.raw.timestamp || ""}`;
+        } else if (sub.type === "FAU Codes") {
+          text = `<b>FAU Code:</b> ${sub.raw.fau_code || ""}<br>
+                  <b>Description:</b> ${sub.raw.description || ""}<br>
+                  <b>Linked Non-Verbal:</b> ${sub.raw.linked_non_verbal_behavior || ""}<br>
+                  <b>Timestamp:</b> ${sub.raw.timestamp || ""}`;
+        } else if (sub.type === "Plutchik’s Wheel") {
+          text = `<b>Emotion Category:</b> ${sub.raw.emotion_category || ""}<br>
+                  <b>Reasoning:</b> ${sub.raw.reasoning || ""}<br>
+                  <b>Primary Emotion:</b> ${sub.raw.primary_emotion || ""}<br>
+                  <b>Secondary Dyad:</b> ${sub.raw.secondary_dyad || ""}<br>
+                  <b>Timestamp:</b> ${sub.raw.timestamp || ""}`;
+        } else if (sub.type === "Emotional Intensity") {
+          text = `<b>Emotion Category:</b> ${sub.raw.emotion_category || ""}<br>
+                  <b>Intensity Level:</b> ${sub.raw.intensity_level || ""}<br>
+                  <b>Justification:</b> ${sub.raw.justification || ""}<br>
+                  <b>Timestamp:</b> ${sub.raw.timestamp || ""}`;
+        }
+        colDiv.innerHTML += `
+          <div class="subsegment-item" data-subidx="${sub.idx}">
+            <div>${text}</div>
+            <div class="evaluation-buttons">
+              <button type="button" class="btn correct" onclick="markSubCorrectColumn(${sub.idx})">✔ Correct</button>
+              <button type="button" class="btn incorrect" onclick="markSubIncorrectColumn(${sub.idx})">✘ Incorrect</button>
+            </div>
+            <div class="input-block">
+              <label for="sub-correction-${sub.idx}">Correction</label>
+              <textarea id="sub-correction-${sub.idx}" placeholder="Suggest a correction if incorrect..."></textarea>
+            </div>
+            <div class="input-block">
+              <label for="sub-comment-${sub.idx}">Comment</label>
+              <textarea id="sub-comment-${sub.idx}" placeholder="Add a comment..."></textarea>
+            </div>
           </div>
-          <div class="input-block">
-            <label for="sub-correction-${sub.idx}">Correction</label>
-            <textarea id="sub-correction-${sub.idx}" placeholder="Suggest a correction if incorrect..."></textarea>
-          </div>
-          <div class="input-block">
-            <label for="sub-comment-${sub.idx}">Comment</label>
-            <textarea id="sub-comment-${sub.idx}" placeholder="Add a comment..."></textarea>
-          </div>
-        </div>
-      `;
-    });
-    container.appendChild(colDiv);
+        `;
+      });
+      container.appendChild(colDiv);
+    }
   });
 }
 
@@ -237,12 +246,11 @@ window.markSubIncorrectColumn = function(idx) {
 };
 
 function nextSegment() {
-  if (!isCurrentSegmentComplete()) {
-    alert("Please complete all evaluations (Correct/Incorrect) for the segment and its subsegments before proceeding.");
+  if (!isCurrentSegmentComplete(true)) {
     return;
   }
   saveCurrentEvaluation();
-  saveCurrentSubsegmentEvaluation();
+  saveAllSubsegmentEvaluations(); // Save all subsegment answers
   if (currentIndex < mainSegments.length - 1) {
     currentIndex++;
     updateSegmentDisplay();
@@ -251,7 +259,7 @@ function nextSegment() {
 }
 function previousSegment() {
   saveCurrentEvaluation();
-  saveCurrentSubsegmentEvaluation();
+  saveAllSubsegmentEvaluations(); // Save all subsegment answers
   if (currentIndex > 0) {
     currentIndex--;
     updateSegmentDisplay();
@@ -340,6 +348,29 @@ function saveCurrentSubsegmentEvaluation() {
     comment: comment,
   };
 }
+function saveAllSubsegmentEvaluations() {
+  const subItems = document.querySelectorAll(".subsegment-item");
+  subsegmentResults[currentIndex] = subsegmentResults[currentIndex] || [];
+  subItems.forEach((subItem) => {
+    const idx = parseInt(subItem.getAttribute("data-subidx"), 10);
+    const correction = subItem.querySelector(`#sub-correction-${idx}`).value.trim();
+    const comment = subItem.querySelector(`#sub-comment-${idx}`).value.trim();
+    const isCorrect = subItem.querySelector(".btn.correct.active") !== null;
+    const isIncorrect = subItem.querySelector(".btn.incorrect.active") !== null;
+
+    // Get subsegment info from allSubsegments
+    const subInfo = allSubsegments.filter(sub => sub.segmentIndex === currentIndex)[idx];
+
+    subsegmentResults[currentIndex][idx] = {
+      segmentIndex: currentIndex + 1,
+      subsegmentIndex: idx + 1,
+      topic: subInfo?.type || "",
+      evaluation: isCorrect ? "Correct" : isIncorrect ? "Incorrect" : "Not Marked",
+      correction: correction,
+      comment: comment
+    };
+  });
+}
 
 function isCurrentSegmentComplete(showHighlight = false) {
   let incomplete = [];
@@ -354,9 +385,10 @@ function isCurrentSegmentComplete(showHighlight = false) {
 
   // Check all subsegments in columns
   const subItems = document.querySelectorAll(".subsegment-item");
-  subItems.forEach((item, idx) => {
+  subItems.forEach((item) => {
     const correct = item.querySelector(".btn.correct.active");
     const incorrect = item.querySelector(".btn.incorrect.active");
+    const idx = parseInt(item.getAttribute("data-subidx"), 10);
     if (!correct && !incorrect) {
       incomplete.push({ type: "sub", element: item, idx });
     }
@@ -386,7 +418,7 @@ function nextSegment() {
     return;
   }
   saveCurrentEvaluation();
-  saveCurrentSubsegmentEvaluation();
+  saveAllSubsegmentEvaluations(); // Save all subsegment answers
   if (currentIndex < mainSegments.length - 1) {
     currentIndex++;
     updateSegmentDisplay();
@@ -395,15 +427,22 @@ function nextSegment() {
 }
 
 function submitEvaluation() {
-  if (!isCurrentSegmentComplete(true)) {
-    return;
-  }
+  // Save current segment and subsegment answers
   saveCurrentEvaluation();
-  saveCurrentSubsegmentEvaluation();
+  saveAllSubsegmentEvaluations();
+
+  // Prepare payload
+  const payload = {
+    user: userName,
+    video: window.location.search.split('video=')[1] || 'unknown',
+    segments: results,
+    subsegments: subsegmentResults.flat()
+  };
+
   fetch("/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ main: results, subsegments: subsegmentResults }),
+    body: JSON.stringify(payload),
   })
     .then((res) => {
       if (res.ok) window.location.href = "thankyou.html";
@@ -414,8 +453,6 @@ function submitEvaluation() {
       alert("Error submitting data.");
     });
 }
-
-// Place this at the end of your JS file, after DOM is loaded
 
 document.addEventListener("DOMContentLoaded", function () {
   const showBtn = document.getElementById("show-help-btn");
@@ -460,6 +497,13 @@ document.addEventListener("DOMContentLoaded", function () {
       showImageModal(this.src, this.alt);
     });
   });
+
+  const backBtn = document.getElementById("back-main-btn");
+  if (backBtn) {
+    backBtn.onclick = function () {
+      window.location.href = "main.html";
+    };
+  }
 });
 
 // Single image modal logic (for clicking individual images)

@@ -15,7 +15,8 @@
 
 <body>
   <header>
-    <h1>Ground Truth Testing for Wellness Dataset</h1>
+    <button class="back-main-btn" style="font-size:0.8em; padding:0.4em 1em; margin-right:1em; vertical-align:middle;" onclick="window.location.href='main.html'">← Main Page</button>
+    <h1 style="display:inline;">Ground Truth Testing for Wellness Dataset</h1>
     <div class="progress-info">
       <span id="evaluation-progress">Evaluation Progress: 0/0</span>
     </div>
@@ -34,6 +35,7 @@
           <button onclick="replaySegment()">Replay Segment (2s buffer)</button>
           <button onclick="previousSegment()">Previous Segment</button>
           <button id="next-segment-btn" onclick="nextSegment()">Next Segment</button>
+          <button id="submitBtn" class="submit-btn" onclick="submitEvaluation()">Submit Evaluation</button>
         </div>
       </div>
 
