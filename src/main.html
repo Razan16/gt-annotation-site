@@ -6,8 +6,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Annotation Video Selection</h1>
+  <!-- Side menu (hidden by default) -->
+  <nav class="side-menu" id="sideMenu">
+    <div class="side-menu-header">
+      <span>Menu</span>
+      <button class="close-side-menu" id="closeSideMenu" title="Close">&times;</button>
+    </div>
+    <div class="side-menu-content">
+      <button class="completed-toggle" id="completedToggle">
+        Completed Videos
+        <span id="completedArrow">&#9654;</span>
+      </button>
+      <ul class="completed-list" id="completed-list" style="display:none;">
+        <!-- JS will fill this -->
+      </ul>
+      <button class="signout-btn" onclick="window.location.href='login.html'">Sign Out</button>
+    </div>
+  </nav>
+  <header class="main-header">
+    <div class="header-flex">
+      <div class="main-menu" id="mainMenu" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <h1>Annotation Video Selection</h1>
+    </div>
   </header>
   <div class="main-video-list-container">
     <div class="main-video-list-title">Select a Video</div>

@@ -51,7 +51,7 @@ main {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #0f1a20; /* Background under the static section */
+  background: #0f1a02; /* Background under the static section */
 }
 
 .video-section {
@@ -504,7 +504,7 @@ footer {
   gap: 2em;
   margin: 2em 2cm 1em 2cm; /* 0.5cm from left and right border */
   padding: 1em;
-  background: #17252c;
+  background: #0003;      /* translucent dark background */
   border-radius: 12px;
   box-shadow: 0 0 16px #00000044;
   justify-items: stretch;
@@ -513,7 +513,7 @@ footer {
 
 /* Each segment box */
 .subsegment-column {
-  background: #16222a;
+  background: #1f2d34;    /* Match analysis-section background */
   border-radius: 8px;
   padding: 1em;
   min-width: 0;
@@ -566,61 +566,55 @@ footer {
   position: relative;
 }
 
-/* Correct button: always green, never blue */
-.evaluation-buttons .btn.correct {
-  background: linear-gradient(90deg, #236c33 60%, #223344 100%);
-  color: #e1ffe1;
+/* Subsegment correct/incorrect buttons: smaller size */
+.subsegment-item .btn {
+  min-width: 120px;
+  width: 120px;
+  height: 38px;
+  font-size: 1em;
+  padding: 0.5rem 0;
 }
 
-.evaluation-buttons .btn.correct:hover {
-  background: linear-gradient(90deg, #2e8540 60%, #236c33 100%);
-  color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 4px 16px #2e854088;
+/* Main and subsegment buttons: neutral by default */
+.evaluation-buttons .btn,
+.subsegment-item .btn {
+  background: linear-gradient(90deg, #1f2d34 60%, #223344 100%);
+  color: #b6ccd8;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 12px #0004;
+  transition: background 0.2s, color 0.2s, transform 0.15s, outline 0.2s;
+  margin-bottom: 0;
+  position: relative;
 }
 
-.evaluation-buttons .btn.correct.active {
-  background: linear-gradient(90deg, #2e8540 60%, #236c33 100%);
-  color: #fff;
-  outline: 3px solid #2e8540;
-  box-shadow: 0 0 24px #2e854088;
-  transform: scale(1.07);
-}
-
-/* Incorrect button: always red, never blue */
-.evaluation-buttons .btn.incorrect {
-  background: linear-gradient(90deg, #7c2323 60%, #223344 100%);
-  color: #ffe1e1;
-}
-
-.evaluation-buttons .btn.incorrect:hover {
-  background: linear-gradient(90deg, #b92b27 60%, #7c2323 100%);
-  color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 4px 16px #b92b2788;
-}
-
-.evaluation-buttons .btn.incorrect.active {
-  background: linear-gradient(90deg, #b92b27 60%, #7c2323 100%);
-  color: #fff;
-  outline: 3px solid #b92b27;
-  box-shadow: 0 0 24px #b92b2788;
-  transform: scale(1.07);
-}
-
-/* Same for subsegment buttons */
-.subsegment-item .btn.correct {
-  background: linear-gradient(90deg, #236c33 60%, #223344 100%);
-  color: #e1ffe1;
-}
-
+/* On hover: show lighter green/red for correct/incorrect, neutral for others */
+.evaluation-buttons .btn.correct:hover,
 .subsegment-item .btn.correct:hover {
-  background: linear-gradient(90deg, #2e8540 60%, #236c33 100%);
+  background: linear-gradient(90deg, #43b76e 60%, #2e8540 100%);
   color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 4px 16px #2e854088;
+  transform: scale(1.04);
 }
 
+.evaluation-buttons .btn.incorrect:hover,
+.subsegment-item .btn.incorrect:hover {
+  background: linear-gradient(90deg, #e05a4a 60%, #b92b27 100%);
+  color: #fff;
+  transform: scale(1.04);
+}
+
+.evaluation-buttons .btn:hover,
+.subsegment-item .btn:hover {
+  /* fallback for neutral buttons */
+  background: #2d3a44;
+  color: #fff;
+  transform: scale(1.03);
+}
+
+/* When selected, show strong green/red */
+.evaluation-buttons .btn.correct.active,
 .subsegment-item .btn.correct.active {
   background: linear-gradient(90deg, #2e8540 60%, #236c33 100%);
   color: #fff;
@@ -628,25 +622,20 @@ footer {
   box-shadow: 0 0 24px #2e854088;
   transform: scale(1.07);
 }
-
-.subsegment-item .btn.incorrect {
-  background: linear-gradient(90deg, #7c2323 60%, #223344 100%);
-  color: #ffe1e1;
-}
-
-.subsegment-item .btn.incorrect:hover {
-  background: linear-gradient(90deg, #b92b27 60%, #7c2323 100%);
-  color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 4px 16px #b92b2788;
-}
-
+.evaluation-buttons .btn.incorrect.active,
 .subsegment-item .btn.incorrect.active {
   background: linear-gradient(90deg, #b92b27 60%, #7c2323 100%);
   color: #fff;
   outline: 3px solid #b92b27;
   box-shadow: 0 0 24px #b92b2788;
   transform: scale(1.07);
+}
+
+/* Remove default green/red for main segment buttons */
+.evaluation-buttons .btn.correct,
+.evaluation-buttons .btn.incorrect {
+  background: linear-gradient(90deg, #1f2d34 60%, #223344 100%);
+  color: #b6ccd8;
 }
 
 .subsegment-item textarea {
@@ -661,7 +650,6 @@ footer {
   margin-top: 0.3em;
   margin-bottom: 0.7em;
 }
-
 
 
 /* Main Page Styles */
@@ -816,3 +804,194 @@ footer {
     gap: 1em;
   }
 }
+
+/* Add this at the end of your CSS file */
+.help-icon {
+  display: inline-block;
+  margin-left: 0.4em;
+  color: #66b0ff;
+  background: #16222a;
+  border-radius: 50%;
+  width: 1.3em;
+  height: 1.3em;
+  text-align: center;
+  line-height: 1.3em;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  border: 2px solid #66b0ff;
+  transition: background 0.2s, color 0.2s;
+}
+.help-icon:hover {
+  background: #66b0ff;
+  color: #16222a;
+}
+
+/* Add at the end of your CSS file */
+
+/* Hamburger icon */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 32px;
+  margin: 24px 0 0 24px;
+  cursor: pointer;
+  z-index: 101;
+  position: static; /* Remove absolute positioning */
+}
+.hamburger-menu span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #66b0ff;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+/* Main menu icon (---) */
+.main-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 32px;
+  margin: 0;
+  cursor: pointer;
+  z-index: 101;
+  position: static;
+}
+.main-menu span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #66b0ff;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+/* Side menu styles */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 240px;
+  height: 100vh;
+  background: #1f2d34;
+  color: #fff;
+  box-shadow: 2px 0 16px #0008;
+  z-index: 200;
+  transition: left 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+.side-menu.open {
+  left: 0;
+}
+.side-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.5em 1.2em 1em 1.2em;
+  font-size: 2em;
+  font-weight: bold;
+  color: #66b0ff;
+  letter-spacing: 0.08em;
+  background: linear-gradient(90deg, #1f2d34 60%, #223344 100%);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 4px 18px #0006;
+  text-shadow:
+    0 2px 8px #0008,
+    0 1px 0 #223344,
+    0 0 12px #66b0ff44;
+  border-bottom: 2px solid #2d3e46;
+  margin-bottom: 0.5em;
+}
+
+/* Glowing underline effect for Menu text */
+.side-menu-header span {
+  position: relative;
+  padding-bottom: 0.1em;
+}
+.side-menu-header span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #66b0ff 0%, #225577 100%); /* blue to dark blue */
+  opacity: 0.7;
+  box-shadow: 0 0 12px #66b0ff88;
+}
+
+/* Hide the close (X) button */
+.close-side-menu {
+  display: none;
+}
+
+/* 1cm gap between main menu icon and title */
+.header-flex {
+  display: flex;
+  align-items: center;
+  gap: 1cm;
+}
+
+/* Fancy, modern style for side menu buttons - improved for evenness and subtler blue accent */
+.completed-toggle,
+.signout-btn {
+  background: linear-gradient(90deg, #223344 60%, #16222a 100%);
+  color: #66b0ff;
+  border: none;
+  border-radius: 12px;
+  padding: 1em 1.7em;
+  font-size: 1.15em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 0.9em;
+  margin-top: 0.2em;
+  box-shadow: 0 4px 18px #0006, 0 1.5px 0 #66b0ff22 inset;
+  transition: 
+    background 0.2s, 
+    color 0.2s, 
+    transform 0.15s, 
+    box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+  letter-spacing: 0.04em;
+  outline: none;
+  border-bottom: 2.5px solid #223344;
+  min-width: 210px;
+  width: 100%;
+  max-width: 260px;
+  min-height: 54px;
+  box-sizing: border-box;
+}
+
+/* Hover: subtle blue highlight, no green */
+.completed-toggle:hover,
+.signout-btn:hover {
+  background: linear-gradient(90deg, #29405a 60%, #223344 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.045);
+  box-shadow: 0 8px 32px #0008, 0 2px 0 #66b0ff33 inset;
+}
+
+/* Active: darker blue, no green */
+.completed-toggle:active,
+.signout-btn:active {
+  background: linear-gradient(90deg, #16222a 60%, #223344 100%);
+  color: #fff;
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px #0006;
+}
+
+/* Arrow icon transition for collapse/expand */
+#completedArrow {
+  transition: transform 0.2s;
+  font-size: 1.2em;
+}
+
+

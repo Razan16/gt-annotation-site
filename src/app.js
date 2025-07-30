@@ -188,7 +188,10 @@ function renderAllSubsegmentsColumns() {
     if (grouped[cat].length > 0) {
       const colDiv = document.createElement("div");
       colDiv.className = "subsegment-column";
-      colDiv.innerHTML += `<div style="font-weight:bold; color:#66b0ff; margin-bottom:0.7em; font-size:1.1em;">${cat}</div>`;
+      // Add help icon next to FAU Codes and Plutchik’s Wheel
+      colDiv.innerHTML += `<div style="font-weight:bold; color:#66b0ff; margin-bottom:0.7em; font-size:1.1em;">
+        ${cat} ${getHelpIcon(cat)}
+      </div>`;
       grouped[cat].forEach(sub => {
         let text = "";
         if (sub.type === "Non-Verbal Behavior") {
@@ -233,6 +236,17 @@ function renderAllSubsegmentsColumns() {
       container.appendChild(colDiv);
     }
   });
+}
+
+// 1. Add this helper for rendering the help icon
+function getHelpIcon(topic) {
+  if (topic === "FAU Codes") {
+    return `<span class="help-icon" data-img="FAU Lookup Table.png" data-alt="FAU Lookup Table" title="Show FAU Lookup Table">?</span>`;
+  }
+  if (topic === "Plutchik’s Wheel" || topic === "Plutchik's Wheel") {
+    return `<span class="help-icon" data-img="Plutchik's wheel.png" data-alt="Plutchik’s Wheel" title="Show Plutchik’s Wheel">?</span>`;
+  }
+  return "";
 }
 
 // Button highlight logic remains unchanged
@@ -439,6 +453,32 @@ function submitEvaluation() {
     subsegments: subsegmentResults.flat()
   };
 
+  // --- Mark the video as completed using the name from the videos section ---
+  try {
+    // Get the video id from the URL
+    const videoId = payload.video;
+    // Define your video list here (should match the main page)
+    const videos = [
+      { id: "1", name: "Gemini Video Analysis" }
+      // Add more videos here if needed, e.g.:
+      // { id: "2", name: "Video 2" },
+      // ...
+    ];
+    // Find the video name by id
+    let videoName = videos.find(v => v.id === videoId)?.name || ("Video " + videoId);
+    let completed = [];
+    try {
+      completed = JSON.parse(localStorage.getItem('completedVideos') || "[]");
+    } catch {}
+    if (!completed.includes(videoName)) {
+      completed.push(videoName);
+      localStorage.setItem('completedVideos', JSON.stringify(completed));
+    }
+  } catch (e) {
+    // fail silently
+  }
+  // --- End block ---
+
   fetch("/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -504,6 +544,105 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = "main.html";
     };
   }
+
+  // Remove the show help button
+  const helpBtn = document.getElementById("show-help-btn");
+  if (helpBtn) helpBtn.remove();
+
+  // Add modal HTML if not present
+  if (!document.getElementById("help-modal")) {
+    const modal = document.createElement("div");
+    modal.id = "help-modal";
+    modal.style.display = "none";
+    modal.style.position = "fixed";
+    modal.style.zIndex = "9999";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.right = "0";
+    modal.style.bottom = "0";
+    modal.style.background = "rgba(10,20,30,0.15)";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.innerHTML = `
+      <div id="help-modal-content" style="background:#1f2d34; border-radius:18px; padding:2em; box-shadow:0 0 32px #000a; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); max-width:90vw; max-height:90vh; display:flex; flex-direction:column; align-items:center; cursor:move;">
+        <button id="close-help-modal" style="position:absolute; top:8px; right:18px; background:transparent; color:#fff; border:none; font-size:2.2rem; cursor:pointer;">&times;</button>
+        <img id="help-modal-img" src="" alt="" style="max-width:70vw; max-height:70vh; border-radius:12px; margin-bottom:1em; background:#222;">
+        <div id="help-modal-caption" style="color:#66b0ff; font-weight:bold; text-align:center; font-size:1.1em;"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    // Allow closing by clicking outside the popup
+    modal.addEventListener("mousedown", function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // Drag logic for the popup
+    const content = modal.querySelector("#help-modal-content");
+    let isDragging = false, startX, startY, startLeft, startTop;
+    content.addEventListener("mousedown", function (e) {
+      if (e.target.id === "close-help-modal") return;
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      const rect = content.getBoundingClientRect();
+      startLeft = rect.left;
+      startTop = rect.top;
+      document.body.style.userSelect = "none";
+    });
+    document.addEventListener("mousemove", function (e) {
+      if (!isDragging) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      content.style.left = `calc(50% + ${dx}px)`;
+      content.style.top = `calc(50% + ${dy}px)`;
+      content.style.transform = "translate(-50%, -50%)";
+    });
+    document.addEventListener("mouseup", function () {
+      isDragging = false;
+      document.body.style.userSelect = "";
+      // Reset to center if out of bounds (optional)
+    });
+  }
+
+  // Handle help icon clicks
+  document.body.addEventListener("click", function (e) {
+    if (e.target.classList.contains("help-icon")) {
+      const img = e.target.getAttribute("data-img");
+      const alt = e.target.getAttribute("data-alt");
+      // Open the popup and write immediately
+      const win = window.open("", "_blank", "width=950,height=700");
+      if (win) {
+        win.document.write(`
+          <html>
+          <head>
+            <title>${alt}</title>
+            <style>
+              body { background:#1c2b33; color:#fff; font-family:sans-serif; margin:0; padding:2em; }
+              .help-title { text-align:center; font-weight:bold; color:#66b0ff; margin-bottom:0.5em; font-size:1.2em; }
+              img { max-width:90vw; max-height:80vh; display:block; margin:0 auto 2em auto; border-radius:10px; box-shadow:0 0 16px #0008; }
+              .caption { text-align:center; font-size:1.3em; color:#66b0ff; margin-bottom:1em; }
+              .close-btn { position:fixed; top:18px; right:28px; background:transparent; color:#fff; border:none; font-size:2.2rem; cursor:pointer; z-index:10; }
+            </style>
+          </head>
+          <body>
+            <button class="close-btn" onclick="window.close()">&times;</button>
+            <div class="caption">${alt}</div>
+            <img src="${img}" alt="${alt}" />
+          </body>
+          </html>
+        `);
+        win.document.close();
+      } else {
+        alert("Popup blocked! Please allow popups for this site.");
+      }
+    }
+    if (e.target.id === "close-help-modal") {
+      document.getElementById("help-modal").style.display = "none";
+    }
+  });
 });
 
 // Single image modal logic (for clicking individual images)
